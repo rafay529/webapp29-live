@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show data</title>
+    <style>
+        .border{
+            border: 1px solid black;
+            padding: 2px;
+        }
+    </style>
+</head>
+<body>
+    <form action="/search" method="post">
+        {% csrf_token %}
+        <tr>
+            <td><input name="name"> </td>
+            <td><button type="submit">Search</button></td>
+        </tr>
+    </form>
+    <table>
+        
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Contact</th>
+        </tr>
+
+        {% for i in employee %}
+        <tr>
+            <td class="border">{{ i.eid }}</td>
+            <td class="border">{{ i.ename }}</td>
+            <td class="border">{{ i.eemail }}</td>
+            <td class="border">{{ i.econtact }}</td>
+            <td>
+                <a href="edit/{{ i.id }}">Edit</a>&emsp;
+            </td> 
+            <td>
+                <a href="delete/{{ i.id }}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+
+    </table>
+</body>
+</html>
