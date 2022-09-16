@@ -4,7 +4,7 @@ botocore==1.27.73
 Django==4.1.1
 django-filter==22.1
 django-storages
-docutils-0.19
+docutils
 gunicorn==20.1.0
 jmespath==1.0.1
 Pillow==9.2.0
